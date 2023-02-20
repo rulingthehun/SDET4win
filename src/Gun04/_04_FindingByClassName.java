@@ -6,23 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class _02_1_FindingById {
+public class _04_FindingByClassName {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver(); // web sayfasini kontrol eden gorevli
         driver.get("https://form.jotform.com/221934510376353"); //web sayfasini ac
 
-        WebElement name = driver.findElement(By.id("first_8"));
-        name.sendKeys("burak");
-
-        WebElement surName = driver.findElement(By.id("last_8"));
-        surName.sendKeys("gaznepoglu");
-
-        WebElement label1 = driver.findElement(By.id("sublabel_8_first"));
-        System.out.println("label1.getText() = " + label1.getText());
-
-        WebElement label2 = driver.findElement(By.id("sublabel_8_last"));
-        System.out.println("label2.getText() = " + label2.getText());
+        WebElement submitButton = driver.findElement(By.className("form-submit-button"));
+        System.out.println("submitButton.getText() = " + submitButton.getText());
+        submitButton.click();
 
         MyFunc.Bekle(10);
         driver.quit();
